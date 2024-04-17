@@ -6,6 +6,7 @@ import 'package:employee_attendance/Screens/bottom_bar/bottom_bar_pages/view_att
 import 'package:employee_attendance/User/user.dart';
 import 'package:employee_attendance/service/location_service.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'bottom_bar_pages/menus.dart';
 
@@ -134,8 +135,8 @@ class _BottomNavigateState extends State<BottomNavigate> {
                 icon: Icon(Icons.home_outlined),
                 label: " "),
             BottomNavigationBarItem(
-                activeIcon: Icon(Icons.person),
-                icon: Icon(Icons.person_outline_outlined),
+                activeIcon: Icon(FontAwesomeIcons.userCog,size: 25,),
+                icon: Icon(FontAwesomeIcons.userPen, size: 20),
                 label: " "),
           ],
           currentIndex: currentpage,

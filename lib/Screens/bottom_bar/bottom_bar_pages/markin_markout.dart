@@ -143,41 +143,12 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                   style: TextStyle(
                       fontFamily: 'Main1',
                       fontSize: 20,
-                      color: First,
+                      color: newFirst,
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: RichText(
-                  text: TextSpan(
-                      text: DateTime.now().day.toString(),
-                      style: TextStyle(
-                          color: FirstAccent, fontSize: 18, fontFamily: 'Main'),
-                      children: [
-                        TextSpan(
-                          text: DateFormat(' MMMM yyyy').format(DateTime.now()),
-                          style: TextStyle(
-                              color: First, fontSize: 20, fontFamily: 'Main'),
-                        )
-                      ]),
-                ),
-              ),
-              StreamBuilder(
-                  stream: Stream.periodic(const Duration(seconds: 1)),
-                  builder: (context, snapshot) {
-                    return Container(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        DateFormat('hh:mm:ss a').format(DateTime.now()),
-                        style: TextStyle(
-                            fontFamily: 'Main1',
-                            fontSize: 20,
-                            color: First,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    );
-                  }),
+
+
               Container(
                 margin: const EdgeInsets.only(top: 10),
                 height: 150,
@@ -242,6 +213,43 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                     ],
                   ),
                 ),
+              ),
+              HeightGap(gap: 0.02),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: RichText(
+                      text: TextSpan(
+                          text: DateTime.now().day.toString(),
+                          style: TextStyle(
+                              color: FirstAccent, fontSize: 18, fontFamily: 'Main'),
+                          children: [
+                            TextSpan(
+                              text: DateFormat(' MMMM yyyy').format(DateTime.now()),
+                              style: TextStyle(
+                                  color: First, fontSize: 20, fontFamily: 'Main'),
+                            )
+                          ]),
+                    ),
+                  ),
+                  StreamBuilder(
+                      stream: Stream.periodic(const Duration(seconds: 1)),
+                      builder: (context, snapshot) {
+                        return Container(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            DateFormat('hh:mm:ss a').format(DateTime.now()),
+                            style: TextStyle(
+                                fontFamily: 'Main1',
+                                fontSize: 20,
+                                color: First,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        );
+                      }),
+                ],
               ),
               const HeightGap(gap: 0.01),
               markOut ==  '--/--' ? Container(
