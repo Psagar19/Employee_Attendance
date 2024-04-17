@@ -74,7 +74,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                         ),
                         const HeightGap(gap: 0.01),
                         Text(
-                            MyUser.employeeId,
+                            "Id: ${MyUser.employeeId}",
                           style: const TextStyle(
                               fontFamily: 'Main1',
                               fontSize: 20,
@@ -92,6 +92,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
               datacontainer(icon: Icons.email, title: "Email", maintext: MyUser.emailAddress),
               const HeightGap(gap: 0.01),
               datacontainer(icon: Icons.phone, title: "Phone No.", maintext: MyUser.phoneNumber),
+              const HeightGap(gap: 0.01),
+              datacontainer(icon: Icons.work, title: "Designation", maintext: MyUser.designation),
               const HeightGap(gap: 0.01),
               datacontainer(icon: Icons.calendar_month_outlined, title: "BirthDate", maintext: MyUser.birthDate),
               const HeightGap(gap: 0.01),

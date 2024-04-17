@@ -44,6 +44,7 @@ class _BottomNavigateState extends State<BottomNavigate> {
         MyUser.emailAddress = doc["emailId"];
         MyUser.phoneNumber = doc["phoneNum"];
         MyUser.birthDate = doc["BirthDate"];
+        MyUser.designation = doc["designation"];
         MyUser.address = doc["address"];
       });
     } catch(e) {

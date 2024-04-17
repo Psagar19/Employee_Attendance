@@ -6,6 +6,7 @@ class MyUser {
   static String emailAddress = " ";
   static String phoneNumber = " ";
   static String birthDate = " ";
+  static String designation = " ";
   static String address = " ";
   static String profilePicLink = " ";
   static double lat = 0;

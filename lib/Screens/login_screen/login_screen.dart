@@ -75,6 +75,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       Keyboardtype: TextInputType.text,
                       hint: 'User Id',
                       myicon: Icons.person,
+                      maxLines: 1,
                     ),
                     const HeightGap(gap: 0.01),
                     Mytextfield(
@@ -82,6 +83,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       Obscure: ispasswordvisible,
                       Keyboardtype: TextInputType.visiblePassword,
                       hint: "Password",
+                      maxLines: 1,
                       myicon: Icons.lock_outline,
                       suffixbutton: IconButton(
                           onPressed: () {

@@ -4,12 +4,11 @@ import 'package:employee_attendance/Common/dimension.dart';
 import 'package:employee_attendance/Screens/bottom_bar/bottom_bar_pages/menus_pages/profile_edit.dart';
 import 'package:employee_attendance/Screens/bottom_bar/bottom_bar_pages/view_attendance.dart';
 import 'package:employee_attendance/User/user.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../../../Common/custom_widgets/custome_list_tile.dart';
+import 'menus_pages/levave.dart';
 import 'menus_pages/userdetails.dart';
 
 class MenusPages extends StatefulWidget {
@@ -76,7 +75,7 @@ class _MenusPagesState extends State<MenusPages> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "User Id: " + MyUser.employeeId,
+                          "Id: " + MyUser.employeeId,
                           style: TextStyle(
                               fontSize: screenHeight(context) * 0.024,
                               fontWeight: FontWeight.bold),
@@ -134,18 +133,25 @@ class _MenusPagesState extends State<MenusPages> {
                 },
               ),
               mylisttile(
-                icons: Icons.calendar_month,
-                listiconcolor: Colors.red.shade800,
-                listtextcolor: Colors.red.shade800,
-                title: "Holiday List",
-                ontap: () {},
-              ),
-              mylisttile(
                 icons: Icons.pending_actions,
                 listiconcolor: Colors.red.shade800,
                 listtextcolor: Colors.red.shade800,
                 title: "Leave Request",
-                ontap: () {},
+                ontap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LevaveReqScr()));
+                },
+              ),
+              mylisttile(
+                icons: Icons.calendar_month,
+                listiconcolor: Colors.red.shade800,
+                listtextcolor: Colors.red.shade800,
+                title: "Holiday List",
+                ontap: () {
+
+                },
               ),
               mylisttile(
                 icons: Icons.monetization_on_outlined,

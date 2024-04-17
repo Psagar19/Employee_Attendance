@@ -147,8 +147,6 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-
-
               Container(
                 margin: const EdgeInsets.only(top: 10),
                 height: 150,
