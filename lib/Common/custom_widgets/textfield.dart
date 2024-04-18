@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
@@ -8,51 +7,51 @@ class Mytextfield extends StatelessWidget {
   const Mytextfield({
     super.key,
     required this.controller,
-    required this.Keyboardtype,
-    this.Obscure = false,
+    required this.keyboardtype,
+    this.obscure = false,
     required this.hint,
     this.myicon,
-    this.suffixbutton, this.OnTap,
-    this.ReadOnly = false,
+    this.suffixbutton, this.onTap,
+    this.readOnly = false,
     this.maxchar,
     this.maxLines,
   });
 
   final TextEditingController controller;
-  final TextInputType Keyboardtype;
-  final bool Obscure, ReadOnly;
+  final TextInputType keyboardtype;
+  final bool obscure, readOnly;
   final int? maxchar, maxLines;
   final String hint;
   final IconData? myicon;
   final IconButton? suffixbutton;
-  final Function()? OnTap;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap: OnTap,
-        readOnly: ReadOnly,
+      onTap: onTap,
+        readOnly: readOnly,
         controller: controller,
-        keyboardType: Keyboardtype,
+        keyboardType: keyboardtype,
         maxLines: maxLines,
-        obscureText: Obscure,
+        obscureText: obscure,
         maxLength: maxchar,
-        cursorColor: FirstAccent,
-        style: TextStyle(fontSize: 16,fontFamily: "Main1", color: FirstAccent),
+        cursorColor: firstAccent,
+        style: TextStyle(fontSize: 16,fontFamily: "Main1", color: firstAccent),
         decoration: InputDecoration(
             hintText: hint,
-            prefixIcon: Icon(myicon, color: FirstAccent),
+            prefixIcon: Icon(myicon, color: firstAccent),
             suffixIcon: suffixbutton,
             enabledBorder:  OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: Colors.black,
                     width: 1.5
                 )
             ),
             focusedBorder:  OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.black,
                 width: 1.5
               )
@@ -76,22 +75,22 @@ class MyDatashow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8.0, bottom: 8.0),
+      margin: const EdgeInsets.only(top: 8.0, bottom: 8.0),
       height: screenHeight(context) * 0.07,
       padding: const EdgeInsets.only(
           left: 8.0, right: 8.0, top: 8.0, bottom: 10.0),
       width: screenWidth(context),
       decoration: BoxDecoration(
-          color: Second,
+          color: second,
           borderRadius: BorderRadius.circular(8.0),
           border: Border.all(color: Colors.black)),
       child:
       Row(
         children: [
-          Icon(myicon, size: 25,color: FirstAccent,),
-          Spacer(),
-          Text(text, style: TextStyle(fontSize: 16,fontFamily: "Main1", color: FirstAccent),),
-          Spacer(flex: 20,),
+          Icon(myicon, size: 25,color: firstAccent,),
+          const Spacer(),
+          Text(text, style: TextStyle(fontSize: 16,fontFamily: "Main1", color: firstAccent),),
+          const Spacer(flex: 20,),
         ],
       ),
     );

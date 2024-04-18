@@ -35,7 +35,7 @@ class _LogInScreenState extends State<LogInScreen> {
               top: 50.0, left: 10.0, right: 10.0),
           width: screenWidth(context),
           height: screenHeight(context),
-          color: Second,
+          color: second,
           child: Column(
             children: [
               const HeightGap(gap: 0.01),
@@ -55,7 +55,7 @@ class _LogInScreenState extends State<LogInScreen> {
               Text(
                 "Log In",
                 style: TextStyle(
-                    color: FirstAccent, fontSize: 30, fontFamily: "Main"),
+                    color: firstAccent, fontSize: 30, fontFamily: "Main"),
               ),
               const HeightGap(gap: 0.1),
               Container(
@@ -65,14 +65,14 @@ class _LogInScreenState extends State<LogInScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: FirstAccent,
+                      color: firstAccent,
                     )),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Mytextfield(
                       controller: useridcontroller,
-                      Keyboardtype: TextInputType.text,
+                      keyboardtype: TextInputType.text,
                       hint: 'User Id',
                       myicon: Icons.person,
                       maxLines: 1,
@@ -80,8 +80,8 @@ class _LogInScreenState extends State<LogInScreen> {
                     const HeightGap(gap: 0.01),
                     Mytextfield(
                       controller: passcontroller,
-                      Obscure: ispasswordvisible,
-                      Keyboardtype: TextInputType.visiblePassword,
+                      obscure: ispasswordvisible,
+                      keyboardtype: TextInputType.visiblePassword,
                       hint: "Password",
                       maxLines: 1,
                       myicon: Icons.lock_outline,
@@ -95,11 +95,11 @@ class _LogInScreenState extends State<LogInScreen> {
                             ispasswordvisible
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: FirstAccent,
+                            color: firstAccent,
                           )),
                     ),
                     const HeightGap(gap: 0.02),
-                    myElevatedbutton(
+                    MyElevatedbutton(
                       onpress: () async {
                         FocusScope.of(context).unfocus();
                         String id = useridcontroller.text.trim();

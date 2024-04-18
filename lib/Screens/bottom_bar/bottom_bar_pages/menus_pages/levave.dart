@@ -1,7 +1,6 @@
 import 'package:employee_attendance/Common/custom_widgets/buttons.dart';
 import 'package:employee_attendance/User/user.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../Common/colors.dart';
 import '../../../../Common/dimension.dart';
@@ -62,7 +61,7 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
                           fontWeight: FontWeight.w600),
                     ),
                   ),
-                  HeightGap(gap: 0.05),
+                  const HeightGap(gap: 0.05),
                   Container(
                     margin: const EdgeInsets.only(left: 5.0, right: 5.0),
                     padding: const EdgeInsets.only(
@@ -75,14 +74,14 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        leaveReqData(
+                        LeaveReqData(
                             title: "Your Name",
-                            text: MyUser.firstName + " " + MyUser.lastName),
-                        HeightGap(gap: 0.01),
-                        leaveReqData(
+                            text: "${MyUser.firstName} ${MyUser.lastName}"),
+                        const HeightGap(gap: 0.01),
+                        LeaveReqData(
                             title: "Designation", text: MyUser.designation),
-                        HeightGap(gap: 0.01),
-                        leaveReqData(
+                        const HeightGap(gap: 0.01),
+                        LeaveReqData(
                           onpressed: () {
                             showDatePicker(
                               context: context,
@@ -101,8 +100,8 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
                               ? 'Select Start Date'
                               : '${_startDate!.day}/${_startDate!.month}/${_startDate!.year}',
                         ),
-                        HeightGap(gap: 0.01),
-                        leaveReqData(
+                        const HeightGap(gap: 0.01),
+                        LeaveReqData(
                           onpressed: () {
                             showDatePicker(
                               context: context,
@@ -121,10 +120,10 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
                               ? 'Select End Date'
                               : '${_endDate!.day}/${_endDate!.month}/${_endDate!.year}',
                         ),
-                        HeightGap(gap: 0.01),
-                        leaveReqData(
+                        const HeightGap(gap: 0.01),
+                        LeaveReqData(
                             title: "No. of Days", text: "$_numberOfDays"),
-                        HeightGap(gap: 0.01),
+                        const HeightGap(gap: 0.01),
                         Text(
                           "Leave Reason",
                           style: TextStyle(
@@ -145,17 +144,17 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
                                 fontFamily: "Main1"),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: const BorderSide(color: Colors.black)),
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: const BorderSide(color: Colors.black)),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: const BorderSide(color: Colors.black)),
                           ),
                         ),
-                        HeightGap(gap: 0.01),
-                        myElevatedbutton(
+                        const HeightGap(gap: 0.01),
+                        MyElevatedbutton(
                             onpress: () {
                               showSnakeBar("Leave Request can be Sent.");
                               Navigator.pop(context);
@@ -178,12 +177,12 @@ class _LevaveReqScrState extends State<LevaveReqScr> {
   }
 }
 
-class leaveReqData extends StatelessWidget {
+class LeaveReqData extends StatelessWidget {
   final String title;
   final String text;
   final Function()? onpressed;
 
-  const leaveReqData({
+  const LeaveReqData({
     super.key,
     required this.title,
     required this.text,
@@ -205,7 +204,7 @@ class leaveReqData extends StatelessWidget {
         GestureDetector(
           onTap: onpressed,
           child: Container(
-            padding: EdgeInsets.only(left: 10.0),
+            padding: const EdgeInsets.only(left: 10.0),
             alignment: Alignment.centerLeft,
             width: screenWidth(context),
             height: screenHeight(context) * 0.06,

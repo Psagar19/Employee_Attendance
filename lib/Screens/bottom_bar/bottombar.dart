@@ -20,7 +20,7 @@ class BottomNavigate extends StatefulWidget {
 
 class _BottomNavigateState extends State<BottomNavigate> {
   int currentpage = 1;
-  bool _currentPage = true;
+  bool currentPage = true;
 
 
   @override
@@ -108,8 +108,8 @@ class _BottomNavigateState extends State<BottomNavigate> {
         width: screenWidth(context),
         height: screenHeight(context) * 0.075,
         decoration: BoxDecoration(
-          color: Second,
-          boxShadow: [
+          color: second,
+          boxShadow: const [
             BoxShadow(
               color: Colors.black,
               blurRadius: 3,
@@ -118,13 +118,13 @@ class _BottomNavigateState extends State<BottomNavigate> {
           ],
         ),
         child: BottomNavigationBar(
-          backgroundColor: Second,
+          backgroundColor: second,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 10,
           selectedIconTheme: IconThemeData(
-            color: _currentPage ? FirstAccent : First,
-            size: _currentPage ? 30 : 10,
+            color: currentPage ? firstAccent : first,
+            size: currentPage ? 30 : 10,
           ),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -136,7 +136,7 @@ class _BottomNavigateState extends State<BottomNavigate> {
                 icon: Icon(Icons.home_outlined),
                 label: " "),
             BottomNavigationBarItem(
-                activeIcon: Icon(FontAwesomeIcons.userCog,size: 25,),
+                activeIcon: Icon(FontAwesomeIcons.userGear,size: 25,),
                 icon: Icon(FontAwesomeIcons.userPen, size: 20),
                 label: " "),
           ],

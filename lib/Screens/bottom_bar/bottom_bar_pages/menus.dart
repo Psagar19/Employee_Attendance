@@ -41,12 +41,12 @@ class _MenusPagesState extends State<MenusPages> {
                   height: screenHeight(context) * 0.25,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [newSecond, newFirst]),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(color: Colors.black, blurRadius: 2)
                       ]),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 10.0, left: 20.0),
+                  margin: const EdgeInsets.only(top: 10.0, left: 20.0),
                   width: 135,
                   height: 135,
                   decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _MenusPagesState extends State<MenusPages> {
                       border: Border.all(color: Colors.black, width: 2)),
                   child: ClipOval(
                     child: MyUser.profilePicLink == " "
-                        ? Icon(
+                        ? const Icon(
                             Icons.person,
                             size: 100,
                           )
@@ -67,7 +67,7 @@ class _MenusPagesState extends State<MenusPages> {
                   bottom: 0,
                   left: 20.0,
                   right: 10.0,
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth(context),
                     height: screenHeight(context) * 0.08,
                     child: Column(
@@ -75,13 +75,13 @@ class _MenusPagesState extends State<MenusPages> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Id: " + MyUser.employeeId,
+                          "Id: ${MyUser.employeeId}",
                           style: TextStyle(
                               fontSize: screenHeight(context) * 0.024,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "Email Id: " + MyUser.emailAddress,
+                          "Email Id: ${MyUser.emailAddress}",
                           style: TextStyle(
                               fontSize: screenHeight(context) * 0.022,
                               fontWeight: FontWeight.bold),
@@ -95,21 +95,21 @@ class _MenusPagesState extends State<MenusPages> {
                   right: 10,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => UserDetailsScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const UserDetailsScreen(),));
                     },
                     child: Container(
-                      padding: EdgeInsets.only(left: 20.0),
+                      padding: const EdgeInsets.only(left: 20.0),
                       width: screenWidth(context) * 0.2,
                       height: screenHeight(context) * 0.05,
-                      child: Icon(Icons.arrow_drop_down, color: Colors.black, size: 30,),
+                      child: const Icon(Icons.arrow_drop_down, color: Colors.black, size: 30,),
                     ),
                   ),
                 )
               ]),
-              mylisttile(
+              Mylisttile(
                 title: "Profile Edit",
-                listiconcolor: FirstAccent,
-                listtextcolor: FirstAccent,
+                listiconcolor: firstAccent,
+                listtextcolor: firstAccent,
                 icons: Icons.person,
                 ontap: () {
                   Navigator.push(
@@ -120,10 +120,10 @@ class _MenusPagesState extends State<MenusPages> {
                       ));
                 },
               ),
-              mylisttile(
+              Mylisttile(
                 icons: Icons.playlist_add_check_circle,
-                listiconcolor: FirstAccent,
-                listtextcolor: FirstAccent,
+                listiconcolor: firstAccent,
+                listtextcolor: firstAccent,
                 title: "View Attendance",
                 ontap: () {
                   Navigator.push(
@@ -132,7 +132,7 @@ class _MenusPagesState extends State<MenusPages> {
                           builder: (context) => ViewAttendance()));
                 },
               ),
-              mylisttile(
+              Mylisttile(
                 icons: Icons.pending_actions,
                 listiconcolor: Colors.red.shade800,
                 listtextcolor: Colors.red.shade800,
@@ -144,7 +144,7 @@ class _MenusPagesState extends State<MenusPages> {
                           builder: (context) => LevaveReqScr()));
                 },
               ),
-              mylisttile(
+              Mylisttile(
                 icons: Icons.calendar_month,
                 listiconcolor: Colors.red.shade800,
                 listtextcolor: Colors.red.shade800,
@@ -153,7 +153,7 @@ class _MenusPagesState extends State<MenusPages> {
 
                 },
               ),
-              mylisttile(
+              Mylisttile(
                 icons: Icons.monetization_on_outlined,
                 listiconcolor: Colors.red.shade800,
                 listtextcolor: Colors.red.shade800,

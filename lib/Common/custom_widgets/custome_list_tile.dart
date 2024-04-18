@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
 import '../dimension.dart';
 
-class mylisttile extends StatelessWidget {
-  const mylisttile({
+class Mylisttile extends StatelessWidget {
+  const Mylisttile({
     super.key,
     required this.ontap,
     this.icons,
@@ -27,9 +25,9 @@ class mylisttile extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Container(
-        padding: EdgeInsets.only(left: 8.0,right: 8.0),
+        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.only(left: 8.0, right: 8.0,bottom: 8.0, top: 8.0),
+        margin: const EdgeInsets.only(left: 8.0, right: 8.0,bottom: 8.0, top: 8.0),
         height: kToolbarHeight,
         width: screenWidth(context),
         decoration: BoxDecoration(
@@ -41,9 +39,9 @@ class mylisttile extends StatelessWidget {
         child: Row(
           children: [
             Icon(icons, color: listiconcolor,size: 30,),
-            Spacer(),
+            const Spacer(),
             Text(title, style: TextStyle(fontSize: screenHeight(context) * 0.02, fontFamily: "Main", color: listtextcolor),),
-            Spacer(flex: 20,),
+            const Spacer(flex: 20,),
             Icon(Icons.keyboard_arrow_right, color: listiconcolor,size: 30,)
           ],
         ),

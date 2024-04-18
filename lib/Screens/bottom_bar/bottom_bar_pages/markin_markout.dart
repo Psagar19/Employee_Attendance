@@ -126,7 +126,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           width: screenWidth(context),
           height: screenHeight(context),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   opacity: 0.5,
                   fit: BoxFit.fill,
@@ -139,7 +139,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                 alignment: Alignment.centerLeft,
                 margin: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'Wel Come, ' + MyUser.employeeId,
+                  'Wel Come, ${MyUser.employeeId}',
                   style: TextStyle(
                       fontFamily: 'Main1',
                       fontSize: 20,
@@ -165,7 +165,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                           Expanded(
                             child: Column(
                               children: [
-                                Text(
+                                const Text(
                                   'Mark In',
                                   style: TextStyle(
                                       color: Colors.black,
@@ -175,7 +175,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                                 ),
                                 Text(
                                   markIn,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Main',
                                       fontSize: 18,
@@ -187,7 +187,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                           Expanded(
                             child: Column(
                               children: [
-                                Text(
+                                const Text(
                                   'Mark Out',
                                   style: TextStyle(
                                       color: Colors.black,
@@ -197,7 +197,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                                 ),
                                 Text(
                                   markOut,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Main',
                                       fontSize: 20,
@@ -212,7 +212,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                   ),
                 ),
               ),
-              HeightGap(gap: 0.02),
+              const HeightGap(gap: 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -222,12 +222,12 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                       text: TextSpan(
                           text: DateTime.now().day.toString(),
                           style: TextStyle(
-                              color: FirstAccent, fontSize: 18, fontFamily: 'Main'),
+                              color: firstAccent, fontSize: 18, fontFamily: 'Main'),
                           children: [
                             TextSpan(
                               text: DateFormat(' MMMM yyyy').format(DateTime.now()),
                               style: TextStyle(
-                                  color: First, fontSize: 20, fontFamily: 'Main'),
+                                  color: first, fontSize: 20, fontFamily: 'Main'),
                             )
                           ]),
                     ),
@@ -242,7 +242,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                             style: TextStyle(
                                 fontFamily: 'Main1',
                                 fontSize: 20,
-                                color: First,
+                                color: first,
                                 fontWeight: FontWeight.w600),
                           ),
                         );
@@ -251,13 +251,12 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
               ),
               const HeightGap(gap: 0.01),
               markOut ==  '--/--' ? Container(
-                margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                 child: Builder(builder: (context) {
                   final GlobalKey<SlideActionState> key = GlobalKey();
                   return SlideAction(
                     animationDuration: const Duration(milliseconds: 500),
                     text: markIn ==  '--/--' ? 'Slide to Mark In' : 'Slide to Mark Out',
-                    reversed: markIn ==  '--/--' ? false : true,
                     textStyle:  TextStyle(
                         fontFamily: 'Main1',
                         fontSize: 20,
@@ -265,10 +264,10 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                         fontWeight: FontWeight.w600),
                     innerColor: markIn ==  '--/--' ? newSecond : newFirst,
                     outerColor: Colors.white,
-                    sliderButtonIcon: Icon(Icons.keyboard_double_arrow_right_sharp, color: Colors.white,),
+                    sliderButtonIcon: const Icon(Icons.keyboard_double_arrow_right_sharp, color: Colors.white,),
                     submittedIcon: Icon(
                       FontAwesomeIcons.checkDouble,
-                      color: Second,
+                      color: second,
                     ),
                     key: key,
                     onSubmit: () async {
@@ -280,7 +279,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                           await controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom:  15.0)));
                           setState(() {
                             marker.clear();
-                            marker.add(Marker(icon: BitmapDescriptor.defaultMarker, markerId: MarkerId("currentlocation"), position: LatLng(position.latitude, position.longitude), ));
+                            marker.add(Marker(icon: BitmapDescriptor.defaultMarker, markerId:  const MarkerId("currentlocation"), position: LatLng(position.latitude, position.longitude), ));
                           });
 
                           QuerySnapshot snap = await FirebaseFirestore.instance
@@ -330,7 +329,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                           }
                           key.currentState!.reset();
                         }else{
-                          Timer( Duration(seconds: 3), () async {
+                          Timer( const Duration(seconds: 3), () async {
                             _getlocation();
 
                             Position position = await _determinePosition();
@@ -338,7 +337,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                             await controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom:  17.0)));
                             setState(() {
                               marker.clear();
-                              marker.add(Marker(icon: BitmapDescriptor.defaultMarker, markerId: MarkerId("currentlocation"), position: LatLng(position.latitude, position.longitude), ));
+                              marker.add(Marker(icon: BitmapDescriptor.defaultMarker, markerId: const MarkerId("currentlocation"), position: LatLng(position.latitude, position.longitude), ));
                             });
 
                             QuerySnapshot snap = await FirebaseFirestore.instance
@@ -393,15 +392,15 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                   );
                 }),
               ) : Container(
-                margin: EdgeInsets.only(top: 31.0, bottom: 31.0),
-                child: Text("You already Completed today's work",
-                  style: const TextStyle(
+                margin: const EdgeInsets.only(top: 31.0, bottom: 31.0),
+                child: const Text("You already Completed today's work",
+                  style:  TextStyle(
                       fontFamily: 'Main1',
                       fontSize: 18,
                       color: Colors.black,
                       fontWeight: FontWeight.w600),),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeight(context) * 0.477,
                 child: GoogleMap(

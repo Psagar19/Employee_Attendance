@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:employee_attendance/Common/dimension.dart';
 import 'package:employee_attendance/User/user.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
@@ -40,7 +39,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                     style: TextStyle(
                         fontFamily: 'Main',
                         fontSize: 25,
-                        color: First,
+                        color: first,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -54,7 +53,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                         style: TextStyle(
                             fontFamily: 'Main1',
                             fontSize: 22,
-                            color: FirstAccent,
+                            color: firstAccent,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -69,9 +68,9 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                             return Theme(
                                 data: Theme.of(context).copyWith(
                                     colorScheme: ColorScheme.light(
-                                      primary: FirstAccent,
-                                      secondary: FirstAccent,
-                                      onSecondary: MYwhite,
+                                      primary: firstAccent,
+                                      secondary: firstAccent,
+                                      onSecondary: myWhite,
                                     ),
                                   textTheme: const TextTheme(
                                     headlineMedium: TextStyle(
@@ -105,7 +104,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                           style: TextStyle(
                               fontFamily: 'Main1',
                               fontSize: 22,
-                              color: FirstAccent,
+                              color: firstAccent,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -113,7 +112,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                   ],
                 ),
                 const HeightGap(gap: 0.01),
-                Container(
+                SizedBox(
                   height: screenHeight(context) * 0.84,
                   child: StreamBuilder<QuerySnapshot>(
                     stream: FirebaseFirestore.instance
@@ -129,16 +128,16 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                             itemCount: snap.length,
                             itemBuilder: (context, index){
                               return DateFormat('MMMM').format(snap[index]['date'].toDate()) == _month ? Container(
-                                margin: EdgeInsets.only(left: 8.0, right: 8.0,top: 8.0),
+                                margin: const EdgeInsets.only(left: 8.0, right: 8.0,top: 8.0),
                                 width: screenWidth(context),
                                 height: screenHeight(context) * 0.17,
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(colors: [newSecond, newFirst]),
                                     borderRadius: BorderRadius.circular(8),
-                                    color: Second,
+                                    color: second,
                                     boxShadow: [
                                       BoxShadow(
-                                        color: FirstAccent,
+                                        color: firstAccent,
                                         blurRadius: 2,
                                         spreadRadius: 1,
                                       )
@@ -159,8 +158,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                         child: Center(
                                             child: Text(
                                               DateFormat('EEEE dd').format(snap[index]['date'].toDate()),
-                                              // snap1[index]['Date'].toDate()
-                                              style:  TextStyle(
+                                              style:  const TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 18, fontWeight: FontWeight.bold),
                                             )),
@@ -179,7 +177,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                             Expanded(
                                                 child: Column(
                                                   children: [
-                                                    Text(
+                                                    const Text(
                                                       "Mark In",
                                                       style: TextStyle(
                                                           color: Colors.black,
@@ -189,7 +187,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                                     ),
                                                     Text(
                                                       snap[index]['markIn'],
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           color: Colors.black,
                                                           fontFamily: 'Main',
                                                           fontSize: 20,
@@ -200,7 +198,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                             Expanded(
                                                 child: Column(
                                                   children: [
-                                                    Text(
+                                                    const Text(
                                                       "Mark Out",
                                                       style: TextStyle(
                                                           color: Colors.black,
@@ -210,7 +208,7 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                                     ),
                                                     Text(
                                                       snap[index]['markOut'],
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           color: Colors.black,
                                                           fontFamily: 'Main',
                                                           fontSize: 20,
@@ -224,11 +222,11 @@ class _ViewAttendanceState extends State<ViewAttendance> {
                                     ),
                                   ],
                                 ),
-                              ) : SizedBox();
+                              ) : const SizedBox();
                             }
                         );
                       }else{
-                        return SizedBox();
+                        return const SizedBox();
                       }
                     },
                   ),

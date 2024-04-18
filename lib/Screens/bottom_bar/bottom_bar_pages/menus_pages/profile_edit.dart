@@ -76,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 isKeyboardVisible
-                    ? SizedBox()
+                    ? const SizedBox()
                     : Stack(
                         children: [
                           Container(
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             width: screenWidth(context),
                             height: screenHeight(context) * 0.22,
                             decoration: BoxDecoration(
-                                color: SecondAccent,
+                                color: secondAccent,
                                 gradient: LinearGradient(
                                     colors: [newSecond, newFirst]),
                                 boxShadow: const [
@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             ]),
                                         child: ClipOval(
                                           child: MyUser.profilePicLink == " "
-                                              ? Icon(
+                                              ? const Icon(
                                                   Icons.person,
                                                   size: 75,
                                                 )
@@ -137,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           pickProfilePic();
                                         },
                                         child: Container(
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.photo_camera,
                                           ),
                                         ),
@@ -145,9 +145,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     )
                                   ],
                                 ),
-                                HeightGap(gap: 0.005),
+                                const HeightGap(gap: 0.005),
                                 Text(
-                                  "Id : " +MyUser.employeeId,
+                                  "Id : ${MyUser.employeeId}",
                                   style: const TextStyle(
                                       fontFamily: 'Main1',
                                       fontSize: 20,
@@ -174,7 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         controller: firstnamecontroller,
-                        Keyboardtype: TextInputType.text,
+                        keyboardtype: TextInputType.text,
                         hint: "First Name",
                         maxLines: 1,
                         myicon: Icons.person_outline_outlined,
@@ -182,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         controller: lastnamecontroller,
-                        Keyboardtype: TextInputType.text,
+                        keyboardtype: TextInputType.text,
                         hint: "Last Name",
                         maxLines: 1,
                         myicon: Icons.person_outline_outlined,
@@ -190,7 +190,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         controller: emailidcontroller,
-                        Keyboardtype: TextInputType.emailAddress,
+                        keyboardtype: TextInputType.emailAddress,
                         hint: "Email Address",
                         maxLines: 1,
                         myicon: Icons.email_outlined,
@@ -198,7 +198,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         controller: phonenumbercontroller,
-                        Keyboardtype: TextInputType.phone,
+                        keyboardtype: TextInputType.phone,
                         maxchar: 10,
                         maxLines: 1,
                         hint: "Phone Number",
@@ -207,14 +207,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                           controller: designationcontroller,
-                          Keyboardtype: TextInputType.text,
+                          keyboardtype: TextInputType.text,
                           myicon: Icons.work_outline,
                           hint: "Designation"
                       ),
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         maxLines: 1,
-                        OnTap: () async {
+                        onTap: () async {
                           showDatePicker(
                             context: context,
                             firstDate: DateTime(1950),
@@ -226,22 +226,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             });
                           });
                         },
-                        ReadOnly: true,
+                        readOnly: true,
                         controller: birthdatecontroller,
-                        Keyboardtype: TextInputType.text,
+                        keyboardtype: TextInputType.text,
                         hint: "Date of Birth",
                         myicon: Icons.calendar_today,
                       ),
                       const HeightGap(gap: 0.01),
                       Mytextfield(
                         controller: addresscontroller,
-                        Keyboardtype: TextInputType.text,
+                        keyboardtype: TextInputType.text,
                         hint: "Address",
                         maxLines: 1,
                         myicon: Icons.location_on_outlined,
                       ),
                       const HeightGap(gap: 0.01),
-                      myElevatedbutton(
+                      MyElevatedbutton(
                         onpress: () async {
                           String firstName = firstnamecontroller.text;
                           String lastName = lastnamecontroller.text;
@@ -295,7 +295,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                         text: "Save",
                       ),
-                      HeightGap(gap: 0.01),
+                      const HeightGap(gap: 0.01),
                     ],
                   ),
                 ),

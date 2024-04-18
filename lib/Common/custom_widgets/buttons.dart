@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 import '../dimension.dart';
 
-class myElevatedbutton extends StatelessWidget {
-  const myElevatedbutton({
+class MyElevatedbutton extends StatelessWidget {
+  const MyElevatedbutton({
     super.key,
     required this.onpress,
     required this.text,
@@ -22,9 +22,9 @@ class myElevatedbutton extends StatelessWidget {
         width: screenWidth(context),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(colors: [newFirst, newSecond],begin: Alignment.center,end: Alignment.centerRight,tileMode: TileMode.mirror,transform: GradientRotation(50)),
+          gradient: LinearGradient(colors: [newFirst, newSecond],begin: Alignment.center,end: Alignment.centerRight,tileMode: TileMode.mirror,transform: const GradientRotation(50)),
         ),
-        child: Text(text, style: TextStyle(color: MYwhite,fontSize: screenHeight(context) * 0.03, fontFamily: "Main"),),
+        child: Text(text, style: TextStyle(color: myWhite,fontSize: screenHeight(context) * 0.03, fontFamily: "Main"),),
       ),
     );
   }

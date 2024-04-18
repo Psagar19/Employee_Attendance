@@ -2,7 +2,6 @@ import 'package:employee_attendance/Common/colors.dart';
 import 'package:employee_attendance/Common/dimension.dart';
 import 'package:employee_attendance/Screens/bottom_bar/bottombar.dart';
 import 'package:employee_attendance/Screens/login_screen/login_screen.dart';
-import 'package:employee_attendance/Screens/bottom_bar/bottom_bar_pages/markin_markout.dart';
 import 'package:employee_attendance/User/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -23,18 +22,18 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
   }
 
-  _goHome() async {
+  _goHome() async{
   await Future.delayed(const Duration(seconds: 5), () {});
   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const KeyboardVisibilityProvider(child: AuthCheck())));
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MYwhite,
+      backgroundColor: myWhite,
       body: Container(
         width: screenWidth(context),
         height: screenHeight(context),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 opacity: 0.5,
                 fit: BoxFit.fill,

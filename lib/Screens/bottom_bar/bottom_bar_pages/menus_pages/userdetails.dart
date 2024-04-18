@@ -87,17 +87,17 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                 ],
               ),
               const HeightGap(gap: 0.04),
-              datacontainer(icon: Icons.person, title: 'Name', maintext: "${MyUser.firstName} ${MyUser.lastName}",),
+              Datacontainer(icon: Icons.person, title: 'Name', maintext: "${MyUser.firstName} ${MyUser.lastName}",),
               const HeightGap(gap: 0.01),
-              datacontainer(icon: Icons.email, title: "Email", maintext: MyUser.emailAddress),
+              Datacontainer(icon: Icons.email, title: "Email", maintext: MyUser.emailAddress),
               const HeightGap(gap: 0.01),
-              datacontainer(icon: Icons.phone, title: "Phone No.", maintext: MyUser.phoneNumber),
+              Datacontainer(icon: Icons.phone, title: "Phone No.", maintext: MyUser.phoneNumber),
               const HeightGap(gap: 0.01),
-              datacontainer(icon: Icons.work, title: "Designation", maintext: MyUser.designation),
+              Datacontainer(icon: Icons.work, title: "Designation", maintext: MyUser.designation),
               const HeightGap(gap: 0.01),
-              datacontainer(icon: Icons.calendar_month_outlined, title: "BirthDate", maintext: MyUser.birthDate),
+              Datacontainer(icon: Icons.calendar_month_outlined, title: "BirthDate", maintext: MyUser.birthDate),
               const HeightGap(gap: 0.01),
-              datacontainer(icon: Icons.location_on, title: "Address", maintext: MyUser.address),
+              Datacontainer(icon: Icons.location_on, title: "Address", maintext: MyUser.address),
 
             ],
           ),
@@ -107,8 +107,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
   }
 }
 
-class datacontainer extends StatelessWidget {
-  const datacontainer({
+class Datacontainer extends StatelessWidget {
+  const Datacontainer({
     super.key,
     required this.icon,
     required this.title,
@@ -135,7 +135,7 @@ class datacontainer extends StatelessWidget {
             margin: const EdgeInsets.only(right: 10.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: First
+                color: first
             ),
             child: Icon(icon, size: 22,color: Colors.white,),
           ),
