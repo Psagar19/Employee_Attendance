@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:employee_attendance/Common/dimension.dart';
 import 'package:employee_attendance/User/user.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geocoding/geocoding.dart';
@@ -267,7 +268,7 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                     sliderButtonIcon: const Icon(Icons.keyboard_double_arrow_right_sharp, color: Colors.white,),
                     submittedIcon: Icon(
                       FontAwesomeIcons.checkDouble,
-                      color: second,
+                      color: Colors.black,
                     ),
                     key: key,
                     onSubmit: () async {
@@ -392,24 +393,30 @@ class _MarkInMarkOutState extends State<MarkInMarkOut> {
                   );
                 }),
               ) : Container(
-                margin: const EdgeInsets.only(top: 31.0, bottom: 31.0),
-                child: const Text("You already Completed today's work",
+                margin: const EdgeInsets.only(top: 35.0, bottom: 35.0),
+                child:  Text("You already Completed today's work",
                   style:  TextStyle(
                       fontFamily: 'Main1',
                       fontSize: 18,
-                      color: Colors.black,
+                      color: newFirst,
                       fontWeight: FontWeight.w600),),
               ),
-              SizedBox(
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
                 width: screenWidth(context),
                 height: screenHeight(context) * 0.477,
-                child: GoogleMap(
-                    initialCameraPosition: _kGooglePlex,
-                  mapType: MapType.normal,
-                  onMapCreated: (GoogleMapController controller) {
-                    _controller.complete(controller);
-                  },
-                  markers: marker,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: GoogleMap(
+                      initialCameraPosition: _kGooglePlex,
+                    mapType: MapType.normal,
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller.complete(controller);
+                    },
+                    markers: marker,
+                  ),
                 )
               ),
             ],
